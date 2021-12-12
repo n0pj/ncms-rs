@@ -9,5 +9,6 @@ cargo install diesel_cli --no-default-features --features mysql
 # diesel setup
 diesel setup
 diesel migration generate create_post
-
+diesel migration run
+diesel migration redo
 ```
