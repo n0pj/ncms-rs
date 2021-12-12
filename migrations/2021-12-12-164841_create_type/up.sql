@@ -1,5 +1,5 @@
 -- Your SQL goes here
-CREATE TABLE IF NOT EXISTS `database`.`type` (
+CREATE TABLE IF NOT EXISTS `database`.`kind` (
   `uuid` VARCHAR(45) NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   `created_at` VARCHAR(45) NOT NULL,

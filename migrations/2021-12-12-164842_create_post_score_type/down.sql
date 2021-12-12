@@ -1,2 +1,2 @@
 -- This file should undo anything in `up.sql`
-DROP TABLE post_score_type
+DROP TABLE post_score_kind

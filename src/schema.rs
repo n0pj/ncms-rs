@@ -47,17 +47,17 @@ table! {
         count -> Bigint,
         created_at -> Varchar,
         updated_at -> Varchar,
-        post_score_type_id -> Varchar,
+        post_score_kind_id -> Varchar,
         post_status_uuid -> Varchar,
     }
 }
 
 table! {
-    post_score_type (id) {
+    post_score_kind (id) {
         id -> Varchar,
         created_at -> Varchar,
         updated_at -> Varchar,
-        type_uuid -> Varchar,
+        kind_uuid -> Varchar,
     }
 }
 
@@ -72,12 +72,12 @@ table! {
 }
 
 table! {
-    post_type (uuid) {
+    post_kind (uuid) {
         uuid -> Varchar,
         created_at -> Varchar,
         updated_at -> Varchar,
         post_uuid -> Varchar,
-        type_uuid -> Varchar,
+        kind_uuid -> Varchar,
     }
 }
 
@@ -101,7 +101,7 @@ table! {
 }
 
 table! {
-    type (uuid) {
+    kind (uuid) {
         uuid -> Varchar,
         name -> Varchar,
         created_at -> Varchar,
@@ -123,13 +123,13 @@ table! {
 joinable!(post_category -> category (category_uuid));
 joinable!(post_category -> post (post_uuid));
 joinable!(post_comment -> post (post_uuid));
-joinable!(post_score -> post_score_type (post_score_type_id));
+joinable!(post_score -> post_score_kind (post_score_kind_id));
 joinable!(post_score -> post_status (post_status_uuid));
-joinable!(post_score_type -> type (type_uuid));
+joinable!(post_score_kind -> kind (kind_uuid));
 joinable!(post_status -> post (post_uuid));
 joinable!(post_status -> status (status_uuid));
-joinable!(post_type -> post (post_uuid));
-joinable!(post_type -> type (type_uuid));
+joinable!(post_kind -> post (post_uuid));
+joinable!(post_kind -> kind (kind_uuid));
 joinable!(post_user -> post (post_uuid));
 joinable!(post_user -> user (user_uuid));
 
@@ -139,11 +139,11 @@ allow_tables_to_appear_in_same_query!(
     post_category,
     post_comment,
     post_score,
-    post_score_type,
+    post_score_kind,
     post_status,
-    post_type,
+    post_kind,
     post_user,
     status,
-    type,
+    kind,
     user,
 );
